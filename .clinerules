@@ -1,0 +1,57 @@
+# Cline Rules for Plane Fight Game
+
+This file outlines the development guidelines and best practices for the Plane Fight H5 game project, aiming for better modularity, performance, and AI-assisted development.
+
+## 1. Code Style
+
+-   **Formatting:** Use Prettier for automatic code formatting. Ensure consistent indentation (e.g., 2 spaces), line endings, and quoting styles.
+-   **Linting:** Use ESLint with a recommended configuration (e.g., Airbnb or Standard) to enforce code quality and identify potential issues.
+-   **Naming Conventions:**
+    -   Variables and functions: `camelCase` (e.g., `playerSpeed`, `updateScore`).
+    -   Classes and Constructors: `PascalCase` (e.g., `BulletPool`, `GameState`).
+    -   Constants: `UPPER_CASE_SNAKE_CASE` (e.g., `SHOT_INTERVAL`, `CANVAS_WIDTH`).
+-   **Readability:** Write clear, concise code. Avoid overly complex nested structures. Break down long functions into smaller, focused ones.
+
+## 2. Modularity
+
+-   **ES Modules:** Use ES6 `import` and `export` syntax for all JavaScript files to manage dependencies explicitly.
+-   **Single Responsibility:** Each module/file should ideally have a single, well-defined purpose (e.g., `game.js` for main loop, `input.js` for input handling, `gamestate.js` for state).
+-   **Dependency Management:** Pass dependencies explicitly through function arguments or class constructors rather than relying on global variables.
+-   **Pure Functions:** Favor writing pure functions where possible (functions that return the same output for the same input and have no side effects).
+
+## 3. Performance Optimization
+
+-   **Game Loop:** Use `requestAnimationFrame` for the main game loop (`gameLoop` function) to ensure smooth animation and efficient resource usage.
+-   **Canvas Drawing:**
+    -   Minimize state changes (`fillStyle`, `font`, etc.) when drawing.
+    -   Avoid drawing elements that are off-screen.
+    -   Consider caching complex or static drawing elements if performance becomes an issue.
+-   **Object Pooling:** Continue and refine the use of object pools (`BulletPool`, `EnemyPool`) to reduce garbage collection overhead by reusing objects instead of constantly creating and destroying them.
+-   **Event Handling:** For high-frequency events (if any are added later, e.g., mouse move for aiming), consider using debouncing or throttling techniques.
+-   **Memory Management:** Be mindful of creating unnecessary objects or holding onto references that are no longer needed.
+
+## 4. State Management
+
+-   **Centralized State:** Manage the game's state using a dedicated module (like `gamestate.js`) and clearly defined states (e.g., `GameState` enum).
+-   **Clear Transitions:** Ensure state transitions are explicit and triggered by specific events or conditions.
+
+## 5. Error Handling
+
+-   Implement basic error handling for critical operations, such as resource loading (though less critical in this simple H5 game, it's a good practice).
+-   Use `console.error` or logging for debugging purposes.
+
+## 6. Comments & Documentation
+
+-   **JSDoc:** Use JSDoc comments for functions, classes, and complex code blocks to explain their purpose, parameters, return values, and any side effects.
+-   **Inline Comments:** Add concise inline comments for non-obvious logic or complex calculations.
+-   **README:** Keep the `README.md` file updated with the project's current features, technical stack, setup instructions, and program flow.
+
+## 7. AI Collaboration Guidelines
+
+-   **Clear Instructions:** Provide AI with precise and unambiguous instructions for tasks.
+-   **Context:** Always provide relevant file contents or specify file paths when asking AI to modify or analyze code.
+-   **Break Down Tasks:** For complex changes, break them into smaller, manageable steps.
+-   **Review:** Thoroughly review any code generated or modified by AI to ensure it meets these rules and the project's requirements.
+-   **Explain Changes:** When AI makes significant changes, include explanations in commit messages or comments.
+
+By adhering to these rules, we aim to maintain a clean, performant, and maintainable codebase that is easy for both human developers and AI tools to understand and contribute to.

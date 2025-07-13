@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /*  垂直布局 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Prevent confetti overflow */
+}
+
+/*  难度选择下拉框样式 */
+#difficulty-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#difficulty-label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+#difficulty {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+.control-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center;
+}
+
+.health-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.health-label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.health-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+    min-width: 0;
+    width: 100%;
+}
+
+.health-fill.low {
+    background-color: #ff4444;
+}
+
+.achievement-badge {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #ffcc00; /* Default color, will be updated by JS */
+    color: #333;
+}
+
+/* Heavenly flowers scattering effect */
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.confetti-container::before,
+.confetti-container::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000; /* Default color, will be randomized */
+    animation: confetti-fall linear infinite;
+}
+
+.confetti-container::before {
+    left: 10%;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    background-color: #00ff00;
+}
+
+.confetti-container::after {
+    left: 90%;
+    animation-duration: 3.5s;
+    animation-delay: 0.5s;
+    background-color: #0000ff;
+}
+
+/* Add more confetti pieces with different delays and colors */
+.confetti-container .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffff00;
+    animation: confetti-fall linear infinite;
+}

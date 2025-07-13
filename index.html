@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>飞机大战</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="control-bar">
+        <div id="difficulty-container">
+            <label for="difficulty" id="difficulty-label">选择难度: </label>
+            <select id="difficulty">
+                <option value="1">简单</option>
+                <option value="2">中等</option>
+                <option value="3">困难</option>
+            </select>
+        </div>
+        <div class="health-container">
+            <span class="health-label">生命值:</span>
+            <div class="health-bar">
+                <div class="health-fill" id="health-fill"></div>
+            </div>
+        </div>
+        <div id="achievement-badge" class="achievement-badge"></div>
+        <div id="shield-display"></div>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
