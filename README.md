@@ -2,6 +2,12 @@
 
 这是一个简单的飞机大战游戏，使用 HTML、CSS 和 JavaScript 构建，并通过 Node.js/Express 服务器提供服务。
 
+在线游戏地址：[planefight-ch7rt5wi3-ldw85s-projects.vercel.app](https://planefight-ch7rt5wi3-ldw85s-projects.vercel.app/)
+
+游戏截图
+![游戏截图](./image/gamesuc.png)
+![游戏截图](./image/vehicle.png)
+
 ## 功能特色
 
 - 玩家控制一架飞机，可在屏幕上自由移动，不能出边界。
@@ -95,3 +101,6 @@ planefight/
 ---
 
 如有建议或问题，欢迎提
+
+1.  在线体验地址：https://planefight-ch7rt5wi3-ldw85s-projects.vercel.app
+2.  有趣的背景：这是一个6岁孩子设计并和AI对话完成开发的游戏，在过程中由父亲提供支持。这是一个孩子学习AI编程的例子。今后我们还会开发更多的游戏。
